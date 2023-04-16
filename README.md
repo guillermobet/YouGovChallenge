@@ -46,7 +46,7 @@ Once you have created your virtual environment and installed Flask, you can run 
 flask run
 ```
 
-The Flask application should now be running on http://localhost:5000/. You can access it using a web browser or a REST client. For debug mode, just add `--debug` to the command above.
+The Flask application should now be running on http://localhost:5000/. You can access it using a REST client. For debug mode, just add `--debug` to the command above.
 
 ## (Optional) Import Insomnia's request collection
 
