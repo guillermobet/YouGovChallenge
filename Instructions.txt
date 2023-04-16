@@ -1,0 +1,95 @@
+DIU Python Exercise
+===================
+
+This is a small exercise intended to enable you to demonstrate your ability
+to use Python to solve a data-related problem. There are two tasks, both
+involving serving some data over an API.
+
+Please send back your code within 24 hours, and don't worry if it's not as
+perfect or polished as you would ideally want!
+
+## Orientation
+
+In the SQLite database "example.db" there are two tables, `variable_taxonomy`
+and `answers`.
+
+`variable_taxonomy` contains metadata that describe some questions that were
+asked to survey respondents. Each row describes one possible answer
+option for a particular question, so there are multiple rows per question.
+
+`answers` records the actual answers given by respondents, with one row per
+answer. The `variable_uuid` and `value` columns from this table can be joined
+against the `variable_uuid` and `answer_option` columns from the
+`variable_taxonomy` table respectively. The `respondent_id` column contains
+a unique respondent identifier.
+
+Note that answer values may be integers or strings, and some questions allow
+each respondent to give more than one answer.
+
+
+## Task 1 - Metadata API
+
+Create a Python 3 application that serves a RESTful JSON API describing all the
+questions found in the database, including their answer options.
+
+Here's an example of a response that such an API might return:
+
+    GET /variables/22d7bdb0-2172-11e4-813c-005056900044/
+    {
+        "label": "Personality - Express feelings or keep to yourself",
+        "options": [
+            {
+                "code": 1,
+                "label": "I readily express my feelings",
+                "option": "1"
+            },
+            {
+                "code": 2,
+                "label": "I tend to keep my feelings to myself",
+                "option": "2"
+            },
+            {
+                "code": 3,
+                "label": "Neither",
+                "option": "3"
+            },
+            {
+                "code": 4,
+                "label": "Don’t know",
+                "option": "4"
+            }
+        ],
+        "question": "Would you say you readily express your feelings, or tend to keep them to yourself?",
+        "type": "list-single",
+        "uuid": "22d7bdb0-2172-11e4-813c-005056900044"
+    }
+
+
+## Task 2 - Response aggregation
+
+Extend the API to provide counts of the number of people that have given
+each answer.
+
+For example:
+
+    GET /variables/22d7bdb0-2172-11e4-813c-005056900044/counts/ 
+    {
+        "1": 195,
+        "2": 220,
+        "3": 32,
+        "4": 5
+    }
+
+
+## Guidance
+
+- Feel free to use any suitable libraries or frameworks.
+
+- The API doesn't need to be production-ready; a development server is fine.
+
+- Don't worry about making the implementation very generic or extensible (we're
+  not going to deploy it for real!), just aim to meet the basic requirements
+  outlined above.
+
+- If you get stuck on any particular aspect, provide comments describing what
+  was problematic, and what you wanted to do.
