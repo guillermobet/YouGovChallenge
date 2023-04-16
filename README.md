@@ -64,5 +64,5 @@ Then, import the `insomnia.json` file into Insomnia, this will load a collection
 ## Considerations
 
 - This app in NOT production-ready.
-- This app provides a minimal viable solution to the challenge described in the `Instructions.txt` file, following the recommendations under the `Guidance` section. Major architectural and implementation desicions (e.g. project structure, error handling, modularization, etc) were explicitly left out in favor of a simpler solution to the challenge provided.
+- This app provides a minimal viable solution to the challenge described in the `Instructions.txt` file, following the recommendations under the `Guidance` section. Major architectural and implementation desicions (e.g. project structure, error handling, modularization, unit testing, end-to-end testing, etc) were explicitly left out in favor of a simpler solution to the challenge provided.
 - This app is provided under de MIT License.
